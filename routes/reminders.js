@@ -11,6 +11,7 @@ const reminderController = require('../controllers/remindercontrollers');
 // * Middlewares
 const { protectUser } = require('../middleware/auth'); 
 
-router.get('/getreminders',reminderController.getreminders);
+router.get('/getreminders',[protectUser],reminderController.getreminders);
+router.post('/setreminders',[protectUser],reminderController.setreminders);
 
 module.exports = router;
