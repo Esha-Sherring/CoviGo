@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
 const reminderSchema = new mongoose.Schema({
   medicines: {  
-
     type: String,
     required: true,
 
-  },stream: {
+  },steam: {
     type: String,
     required: true,
   },
@@ -30,5 +29,5 @@ const reminderSchema = new mongoose.Schema({
 
 })
 
-const Medicine = mongoose.model('medicines', medicineSchema);
-module.exports = Medicine;
+const Reminder = mongoose.model('reminders', reminderSchema);
+module.exports = Reminder;

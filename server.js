@@ -65,9 +65,8 @@ app.post('/payment', function(req, res){
 
  // *Routes
  const userroutes = require('./routes/userroutes.js');
-
  const orderroutes = require('./routes/order.js')
-// const eventroutes = require('./routes/eventsroutes.js')
+ const reminderroutes = require('./routes/reminders.js')
 
 // access config var
 process.env.TOKEN_SECRET;
@@ -88,6 +87,6 @@ app.use(passport.session());
 
 // *Routes
  app.use('/api/user', userroutes);
- app.use('/api/order',[protectUser] ,orderroutes);
-
+ app.use('/api/order',orderroutes);
+ app.use('/api/reminder',reminderroutes);
 const server = app.listen(PORT, console.log(`Server started on Port ${PORT}`));
