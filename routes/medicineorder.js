@@ -6,11 +6,11 @@ const passport = require('passport');
 const router = express.Router();
 
 // * Controllers
-const orderController = require('../controllers/ordercontrollers');
+const medicineController = require('../controllers/medicinecontrollers');
 
 // * Middlewares
 const { protectUser } = require('../middleware/auth'); 
 
-router.post('/placeorder',[protectUser],orderController.placeorder);
+router.post('/placeorder',[protectUser],medicineController.placeorder);
 
 module.exports = router;
