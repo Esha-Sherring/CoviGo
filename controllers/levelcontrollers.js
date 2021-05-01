@@ -8,7 +8,6 @@ const Level = require('../models/level');
 // @route    POST /api/level/add_level
 // @access   Private
     module.exports.addLevel = async (req, res) => {
-      console.log('place order route');
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
       return res.status(400).send('error occured');
