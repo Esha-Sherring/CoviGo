@@ -1,4 +1,4 @@
-import 'package:covigo/Authentication/MainScreen.dart';
+
 import 'package:covigo/FoodSection/OrderConfirmed.dart';
 import 'package:flutter/material.dart';
 import 'package:covigo/Variables.dart';
@@ -268,7 +268,7 @@ class _PaymentPageState extends State<PaymentPage> {
                   GestureDetector(
                     onTap: (){
                       Navigator.push(
-                        context, MaterialPageRoute(builder: (context)=>OrderedConfirmed(),)
+                        context, MaterialPageRoute(builder: (context)=>OrderConfirmed(),)
                         ,);
                     },
                     child: Container(
