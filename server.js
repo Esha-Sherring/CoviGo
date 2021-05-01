@@ -70,6 +70,7 @@ app.post('/payment', function(req, res){
  const medicineroutes = require('./routes/medicineorder.js');
  const levelroutes = require('./routes/level.js');
  const chatroutes = require('./routes/chat.js');
+ const doctorRoutes = require('./routes/doctor.js');
 
  // * Models
 const Message = require("./models/Message");
@@ -99,6 +100,7 @@ app.use(passport.session());
  app.use('/api/medicine',medicineroutes);
  app.use('/api/level', [protectUser], levelroutes);
  app.use('/api/chat', [protectUser], chatroutes);
+ app.use('/api/doctor', doctorRoutes);
 
 const server = app.listen(PORT, console.log(`Server started on Port ${PORT}`));
 
