@@ -3,6 +3,7 @@ import 'package:covigo/FoodSection/FoodScreen.dart';
 import 'package:covigo/Authentication/MainScreen.dart';
 import 'package:covigo/ReminderScreen.dart';
 import 'package:covigo/SplashScreen.dart';
+import 'package:covigo/TrackSection/LevelCheck.dart';
 import 'package:flutter/material.dart';
 import 'FoodSection/OrderConfirmed.dart';
 import 'package:covigo/TrackSection/HomeScreen.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: SplashScreen(),
+      // home: SplashScreen(),
     );
   }
 }

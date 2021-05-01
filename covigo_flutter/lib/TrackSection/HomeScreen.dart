@@ -1,4 +1,5 @@
 import 'package:covigo/ControlScreen.dart';
+import 'package:covigo/TrackSection/LevelCheck.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../Variables.dart';
@@ -82,7 +83,7 @@ class _TrackSectionState extends State<TrackSection> {
                 ),
 
                 Text(
-                  'Food Delivery',
+                  'Track',
                   style:GoogleFonts.poppins(
                     fontSize: 27,
                     color: Color(0xffFFEBE8),
@@ -113,7 +114,7 @@ class _TrackSectionState extends State<TrackSection> {
     padding: EdgeInsets.only(
     left: 20/3.6*boxSizeH,
     right: 20/3.6*boxSizeH,
-    bottom: 10/6.4*boxSizeV,
+    bottom: 20/6.4*boxSizeV,
     ),
     child: Column(
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -136,7 +137,7 @@ class _TrackSectionState extends State<TrackSection> {
     ) ,
     ),
     SizedBox(
-    height: 20/6.4*boxSizeV,
+    height: 10/6.4*boxSizeV,
     ),
       Container(
         width: double.infinity,
@@ -249,6 +250,7 @@ class _TrackSectionState extends State<TrackSection> {
                   margin: EdgeInsets.only(
                     left: 20/3.6*boxSizeH,
                   ),
+
                   child: TextField(
                     focusNode: _oxygennode,
                     controller: _oxygenController,
@@ -293,32 +295,45 @@ class _TrackSectionState extends State<TrackSection> {
         ]
           ),
       ),
-        Container(
-          width: 184/3.6*boxSizeH,
-          height: 42/6.4*boxSizeV,
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: Color(0xffFF8B7B),
-            ),
-            borderRadius:
-            BorderRadius.all(Radius.circular(25.0) //
-            ),
-            color: Color(0xffFF8B7B),),
-          child: Padding(
-            padding:  EdgeInsets.only(
-              top: 10/6.4*boxSizeV,
-            ),
-            child: Text(
-              'Update',
-              style: GoogleFonts.poppins(
-                fontSize: 17.0,
-                color: Color(0xff192D5E),
-                fontWeight: FontWeight.w500,
+        GestureDetector(
+          onTap: (){
+            Navigator.push(
+              context, MaterialPageRoute(builder: (context)=>LevelCheck(
+             temperature: _temperatureController.text,
+             oxygenlevel: _oxygenController.text,
+            ),)
+              ,);
+          },
+          child: Container(
+            width: 184/3.6*boxSizeH,
+            height: 42/6.4*boxSizeV,
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Color(0xffFF8B7B),
               ),
-              textAlign: TextAlign.center,
+              borderRadius:
+              BorderRadius.all(Radius.circular(25.0) //
+              ),
+              color: Color(0xffFF8B7B),),
+            child: Padding(
+              padding:  EdgeInsets.only(
+                top: 5/6.4*boxSizeV,
+              ),
+              child: Text(
+                'Update',
+                style: GoogleFonts.poppins(
+                  fontSize: 17.0,
+                  color: Color(0xff192D5E),
+                  fontWeight: FontWeight.w500,
+                ),
+                textAlign: TextAlign.center,
+              ),
             ),
-          ),
 
+          ),
+        ),
+        SizedBox(
+          height: 20/6.4*boxSizeV,
         ),
         ]
     )

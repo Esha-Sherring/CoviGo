@@ -104,7 +104,7 @@ class _ReminderScreenState extends State<ReminderScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       SizedBox(
-        height: 20/6.4*boxSizeV,
+        height: 5/6.4*boxSizeV,
       ),
     Text(
     'Hello! Tanya.',
@@ -123,7 +123,7 @@ class _ReminderScreenState extends State<ReminderScreen> {
     ) ,
     ),
     SizedBox(
-    height: 20/6.4*boxSizeV,
+    height: 10/6.4*boxSizeV,
     ),
       Container(
           width: double.infinity,
@@ -164,7 +164,7 @@ class _ReminderScreenState extends State<ReminderScreen> {
         ),
       ),
       SizedBox(
-        height: 15/6.4*boxSizeV,
+        height: 10/6.4*boxSizeV,
       ),
       Row(
         children: [
@@ -247,7 +247,7 @@ class _ReminderScreenState extends State<ReminderScreen> {
             ),
 
       SizedBox(
-        height: 20/6.4*boxSizeV,
+        height: 10/6.4*boxSizeV,
       ),
       Container(
         width: double.infinity,
