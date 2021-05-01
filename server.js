@@ -65,6 +65,13 @@ app.post('/payment', function(req, res){
 
  // *Routes
  const userroutes = require('./routes/userroutes.js');
+
+ const orderroutes = require('./routes/order.js')
+ const reminderroutes = require('./routes/reminders.js')
+ const medicineroutes = require('./routes/medicineorder.js')
+ const sanitationroutes = require('./routes/sanitation.js')
+ //const activityroutes= require('./routes/activities.js')
+
  const orderroutes = require('./routes/order.js');
  const reminderroutes = require('./routes/reminders.js');
  const medicineroutes = require('./routes/medicineorder.js');
@@ -75,6 +82,7 @@ app.post('/payment', function(req, res){
  // * Models
 const Message = require("./models/Message");
 const Conversation = require("./models/Conversation");
+
 
 // access config var
 process.env.TOKEN_SECRET;
@@ -93,11 +101,18 @@ app.use(express.json({ extended: false }));
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+app.get('https://accounts.spotify.com/authorize')
 // *Routes
  app.use('/api/user', userroutes);
  app.use('/api/order',orderroutes);
  app.use('/api/reminder',reminderroutes);
  app.use('/api/medicine',medicineroutes);
+
+ app.use('/api/hygiene',sanitationroutes);
+ //app.use('/api/activities',activityroutes);
+
+
  app.use('/api/level', [protectUser], levelroutes);
  app.use('/api/chat', [protectUser], chatroutes);
  app.use('/api/doctor', doctorRoutes);
@@ -125,3 +140,4 @@ io.on("connection", (socket) => {
       console.log("Socket io disconnected");
     });
   });
+
