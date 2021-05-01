@@ -65,10 +65,15 @@ app.post('/payment', function(req, res){
 
  // *Routes
  const userroutes = require('./routes/userroutes.js');
- const orderroutes = require('./routes/order.js')
- const reminderroutes = require('./routes/reminders.js')
- const medicineroutes = require('./routes/medicineorder.js')
+ const orderroutes = require('./routes/order.js');
+ const reminderroutes = require('./routes/reminders.js');
+ const medicineroutes = require('./routes/medicineorder.js');
  const levelroutes = require('./routes/level.js');
+ const chatroutes = require('./routes/chat.js');
+
+ // * Models
+const Message = require("./models/Message");
+const Conversation = require("./models/Conversation");
 
 // access config var
 process.env.TOKEN_SECRET;
@@ -93,5 +98,28 @@ app.use(passport.session());
  app.use('/api/reminder',reminderroutes);
  app.use('/api/medicine',medicineroutes);
  app.use('/api/level', [protectUser], levelroutes);
+ app.use('/api/chat', [protectUser], chatroutes);
 
 const server = app.listen(PORT, console.log(`Server started on Port ${PORT}`));
+
+const io = require("socket.io")(server);
+
+//Socket work for chats
+// Run when client connects
+io.on("connection", (socket) => {
+    socket.on("join", (room) => {
+      socket.join(room);
+      console.log("conversation started!");
+      // Listen for chat message
+      socket.on("messageServer", async (msg) => {
+        console.log("Received", msg);
+        socket.to(room).emit("messageClient", msg);
+        console.log("Emited", msg);
+        await Message.create(msg);
+      });
+    });
+    // Run when a client disconnects
+    socket.on("disconnect", () => {
+      console.log("Socket io disconnected");
+    });
+  });
