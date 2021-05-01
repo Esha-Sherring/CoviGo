@@ -17,5 +17,6 @@ While the patient remains quarantined, our app will provide the necessary monito
 - Mongo Atlas database
 - Stripe Payment module
 - Socket.io
-
+## UI Figma Link
+[](https://www.figma.com/file/Imzr4oswIy0j8nbG0sU4xz/CoviGo?node-id=42%3A62)
 
