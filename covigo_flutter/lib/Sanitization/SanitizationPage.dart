@@ -1,3 +1,4 @@
+import 'package:covigo/ContactSection/ContactDr.dart';
 import 'package:covigo/ControlScreen.dart';
 import 'package:covigo/FoodSection/PlaceOrder.dart';
 import 'package:covigo/Sanitization/SanitizationRequest.dart';
@@ -83,11 +84,18 @@ class _SanitizationPageState extends State<SanitizationPage> {
     fontWeight: FontWeight.w500,
     ) ,
     ),
-    Container(
-    width: 20/3.6*boxSizeH,
-    height: 20/6.4*boxSizeV,
-    child:Icon(FontAwesomeIcons.userNurse,
-    color: Color(0xffFFEBE8),) )
+    GestureDetector(
+      onTap: (){
+        Navigator.push(
+          context, MaterialPageRoute(builder: (context)=>ContactDr(),)
+          ,);
+      },
+      child: Container(
+      width: 20/3.6*boxSizeH,
+      height: 20/6.4*boxSizeV,
+      child:Icon(FontAwesomeIcons.userNurse,
+      color: Color(0xffFFEBE8),) ),
+    )
     ],
     ),
     ),
