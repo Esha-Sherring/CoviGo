@@ -1,5 +1,6 @@
 import 'package:covigo/ContactSection/ContactDr.dart';
 import 'package:covigo/ControlScreen.dart';
+import 'package:covigo/MedicineSection/MedicineScreen.dart';
 import 'package:covigo/TrackSection/TempIndicator.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -198,39 +199,46 @@ class _LevelCheckState extends State<LevelCheck> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                width: 150/3.6*boxSizeH,
-                height: 100/6.4*boxSizeV,
-                  decoration: BoxDecoration(
-                    color: Color(0xffFFEBE8),
-                    border: Border.all(
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(
+                    context, MaterialPageRoute(builder: (context)=>MedsScreen(),)
+                    ,);
+                },
+                child: Container(
+                  width: 150/3.6*boxSizeH,
+                  height: 100/6.4*boxSizeV,
+                    decoration: BoxDecoration(
                       color: Color(0xffFFEBE8),
-                    ),
-                    borderRadius:
-                    BorderRadius.all(Radius.circular(25.0) //
-                    ),
-                  ),
-                child: Row(
-                  children: [
-                    SizedBox(
-                      width: 10/3.6*boxSizeH,),
-                   Text(
-                      'Order\nCovid-19\nKit',
-                      style: GoogleFonts.poppins(
-                        fontSize: 19.0,
-                        color: Color(0xffA22222),
-                        fontWeight: FontWeight.w600,
+                      border: Border.all(
+                        color: Color(0xffFFEBE8),
                       ),
-                      textAlign: TextAlign.center,
+                      borderRadius:
+                      BorderRadius.all(Radius.circular(25.0) //
+                      ),
                     ),
-                    SizedBox(
-                      width: 10/3.6*boxSizeH,),
-                    Container(
-                      width: 49/3.6*boxSizeH,
-                      height: 66/6.4*boxSizeV,
-                      child: Image.asset('images/levelCheckMedicine.png'),
-                    ),
-                  ],
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 10/3.6*boxSizeH,),
+                     Text(
+                        'Order\nCovid-19\nKit',
+                        style: GoogleFonts.poppins(
+                          fontSize: 19.0,
+                          color: Color(0xffA22222),
+                          fontWeight: FontWeight.w600,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        width: 10/3.6*boxSizeH,),
+                      Container(
+                        width: 49/3.6*boxSizeH,
+                        height: 66/6.4*boxSizeV,
+                        child: Image.asset('images/levelCheckMedicine.png'),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               GestureDetector(

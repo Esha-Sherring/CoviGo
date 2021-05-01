@@ -1,4 +1,6 @@
 
+import 'package:covigo/Activities.dart';
+
 import 'SplashScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -11,8 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      home: Activities(),
 
-      home: SplashScreen(),
+      // home: SplashScreen(),
     );
   }
 }
