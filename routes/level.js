@@ -12,7 +12,8 @@ const levelController = require('../controllers/levelcontrollers');
 const { protectUser } = require('../middleware/auth'); 
 
 router.post('/add_level', levelController.addLevel);
+router.get('/get_level/:id', levelController.getALevel);
 router.get('/get_levels', levelController.getLevels);
-router.put('/update_level/:id', levelController.updateLevel)
+router.put('/update_level/:id', levelController.updateLevel);
 
 module.exports = router;

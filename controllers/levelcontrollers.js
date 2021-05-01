@@ -4,7 +4,9 @@ const { check, validationResult } = require('express-validator');
 // * Models
 const Level = require('../models/level');
 
-//Route to add Level details
+// @desc     Add level details
+// @route    POST /api/level/add_level
+// @access   Private
     module.exports.addLevel = async (req, res) => {
       console.log('place order route');
       const errors = validationResult(req);
@@ -22,7 +24,31 @@ const Level = require('../models/level');
                 });
                 console.log(newLevel)
                 newLevel.save();
-                return res.json(newLevel).status(200);
+                if (newLevel.temperature <= 99)
+                {
+                  message1 = "Looks good!";
+                }
+                else if (newLevel.temperature>99 && newLevel.temperature<101)
+                {
+                  message1 = "Take medicine!";
+                }
+                else if (newLevel.temperature >= 101)
+                {
+                  message1 = "Consult a doctor!";
+                }
+                if (newLevel.oxygen >= 95)
+                {
+                  message2 = "Looks good!";
+                }
+                else if (newLevel.oxygen>90 && newLevel.oxygen<95)
+                {
+                  message2 = "On the margin!";
+                }
+                else if (newLevel.oxygen <= 90)
+                {
+                  message2 = "Contact doctor!";
+                }
+                return res.json({message1, message2, newLevel}).status(200);
               }catch(err){
                 console.log(err)
                 return res.status(404).send({ error: "Server error" });
@@ -31,7 +57,33 @@ const Level = require('../models/level');
       }
     }
 
-//Route to get all user levels
+// @desc     Get a specific level
+// @route    GET /api/level/get_level/:id
+// @access   Private
+module.exports.getALevel = async(req,res) =>{
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+  return res.status(400).send('error occured');
+  }
+    try {
+      console.log(req.user._id);
+    const myLevel = await Level.findById(req.params.id);
+    if (!myLevel) {
+      return next(new ErrorResponse('No level detail exists', 400));
+    }
+      res.status(200).json({
+        success: true,
+        data: myLevel,
+      });
+    } catch (err) {
+      console.log(err);
+      return  res.status(500).send({ error: "server error" });
+    }
+}
+
+// @desc     Get all levels
+// @route    GET /api/level/get_levels
+// @access   Private
 module.exports.getLevels = async(req,res) =>{
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -53,7 +105,9 @@ module.exports.getLevels = async(req,res) =>{
     }
 }
 
-//Route to update a Level
+// @desc     Update a Level
+// @route    PUT /api/level/update_level/:id
+// @access   Private
 module.exports.updateLevel = async(req,res) =>{
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
