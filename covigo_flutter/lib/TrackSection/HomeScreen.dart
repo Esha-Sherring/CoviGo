@@ -1,3 +1,4 @@
+import 'package:covigo/ContactSection/ContactDr.dart';
 import 'package:covigo/ControlScreen.dart';
 import 'package:covigo/TrackSection/LevelCheck.dart';
 import 'package:flutter/material.dart';
@@ -90,11 +91,18 @@ class _TrackSectionState extends State<TrackSection> {
                     fontWeight: FontWeight.w500,
                   ) ,
                 ),
-                Container(
-                    width: 20/3.6*boxSizeH,
-                    height: 20/6.4*boxSizeV,
-                    child:Icon(FontAwesomeIcons.userNurse,
-                      color: Color(0xffFFEBE8),) )
+                GestureDetector(
+                  onTap: (){
+                    Navigator.push(
+                      context, MaterialPageRoute(builder: (context)=>ContactDr(),)
+                      ,);
+                  },
+                  child: Container(
+                      width: 20/3.6*boxSizeH,
+                      height: 20/6.4*boxSizeV,
+                      child:Icon(FontAwesomeIcons.userNurse,
+                        color: Color(0xffFFEBE8),) ),
+                )
               ],
             ),
           ),

@@ -1,4 +1,6 @@
+import 'package:covigo/ContactSection/ContactDr.dart';
 import 'package:covigo/MedicineSection/MedicineScreen.dart';
+import 'package:covigo/Sanitization/SanitizationPage.dart';
 import 'package:covigo/TrackSection/HomeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,7 +14,6 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _currentindex=0;
-
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -52,11 +53,18 @@ class _MainScreenState extends State<MainScreen> {
             top: 20/6.4*boxSizeV,
             right: 20/3.6*boxSizeH,
           ),
-          child: Container(
-              width: 20/3.6*boxSizeH,
-              height: 20/6.4*boxSizeV,
-              child:Icon(FontAwesomeIcons.userNurse,
-                color: Color(0xff2A00FC),) ),
+          child: GestureDetector(
+            onTap: (){
+              Navigator.push(
+                context, MaterialPageRoute(builder: (context)=>ContactDr(),)
+                ,);
+            },
+            child: Container(
+                width: 20/3.6*boxSizeH,
+                height: 20/6.4*boxSizeV,
+                child:Icon(FontAwesomeIcons.userNurse,
+                  color: Color(0xff2A00FC),) ),
+          ),
         )
       ],
 
@@ -70,6 +78,7 @@ class _MainScreenState extends State<MainScreen> {
             Container(
               width: 360/3.5*boxSizeH,
               height: 280/6.4*boxSizeV,
+
               decoration:BoxDecoration(
                 color: Colors.white,
                 borderRadius:
@@ -320,7 +329,7 @@ class _MainScreenState extends State<MainScreen> {
                    ],
                  ),
                  SizedBox(
-                   height: 30/6.4*boxSizeV,
+                   height: 10/6.4*boxSizeV,
                  ),
                  Text('Activities for you',
                    style: GoogleFonts.poppins(
@@ -448,7 +457,45 @@ class _MainScreenState extends State<MainScreen> {
 
              ),
         ]
-           )
+           ),
+                 SizedBox(
+                   height: 10/6.4*boxSizeV,
+                 ),
+                 Align(
+                   alignment: Alignment.center,
+                   child: GestureDetector(
+                     onTap: (){
+                       Navigator.push(
+                         context, MaterialPageRoute(builder: (context)=>SanitizationPage(),)
+                         ,);
+                     },
+                     child: Container(
+                       width: 248/3.6*boxSizeH,
+                       height: 40/6.4*boxSizeV,
+                       decoration: BoxDecoration(
+                         border: Border.all(
+                           color: Color(0xffB9D7FF),
+                         ),
+                         borderRadius:
+                         BorderRadius.all(Radius.circular(20.0) //
+                         ),
+                         color: Color(0xffB9D7FF),
+                       ),
+                       child: Padding(
+                         padding: const EdgeInsets.all(8.0),
+                         child: Text(
+                           'Put Sanitization Request',
+                           style: GoogleFonts.poppins(
+                             color: Color(0xff102253),
+                             fontSize:21.0,
+                             fontWeight: FontWeight.w600,
+                           ),
+                           textAlign: TextAlign.center,
+                         ),
+                       ),
+                     ),
+                   ),
+                 ),
 
 
           ],
