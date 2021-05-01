@@ -18,6 +18,8 @@
     "mongoose": "^5.12.7",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "stripe": "^8.145.0"
+    "spotify-web-api-node": "^5.0.2",
+    "stripe": "^8.145.0",
+    "unirest": "^0.6.0"
   }
 }

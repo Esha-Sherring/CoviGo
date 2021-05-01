@@ -68,6 +68,8 @@ app.post('/payment', function(req, res){
  const orderroutes = require('./routes/order.js')
  const reminderroutes = require('./routes/reminders.js')
  const medicineroutes = require('./routes/medicineorder.js')
+ const sanitationroutes = require('./routes/sanitation.js')
+ //const activityroutes= require('./routes/activities.js')
 
 // access config var
 process.env.TOKEN_SECRET;
@@ -86,9 +88,14 @@ app.use(express.json({ extended: false }));
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+app.get('https://accounts.spotify.com/authorize')
 // *Routes
  app.use('/api/user', userroutes);
  app.use('/api/order',orderroutes);
  app.use('/api/reminder',reminderroutes);
  app.use('/api/medicine',medicineroutes);
+ app.use('/api/hygiene',sanitationroutes);
+ //app.use('/api/activities',activityroutes);
+
 const server = app.listen(PORT, console.log(`Server started on Port ${PORT}`));
