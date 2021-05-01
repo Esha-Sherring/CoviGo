@@ -1,3 +1,4 @@
+import 'package:covigo/MedicineSection/MedicineScreen.dart';
 import 'package:covigo/TrackSection/HomeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -244,31 +245,38 @@ class _MainScreenState extends State<MainScreen> {
                           SizedBox(
                             height: 5/6.4*boxSizeV,
                           ),
-                          Container(
-                            width: 134/3.6*boxSizeH,
-                            height: 45/6.4*boxSizeV,
+                          GestureDetector(
+                            onTap: (){
+                              Navigator.push(
+                                context, MaterialPageRoute(builder: (context)=>MedsScreen(),)
+                                ,);
+                            },
+                            child: Container(
+                              width: 134/3.6*boxSizeH,
+                              height: 45/6.4*boxSizeV,
 
-                            decoration: BoxDecoration(
-                              border: Border.all(
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Color(0xff950808),
+                                ),
+                                borderRadius:
+                                BorderRadius.all(Radius.circular(20.0) //
+                                ),
                                 color: Color(0xff950808),
                               ),
-                              borderRadius:
-                              BorderRadius.all(Radius.circular(20.0) //
-                              ),
-                              color: Color(0xff950808),
-                            ),
-                            child: Padding(
-                              padding:  EdgeInsets.only(
-                                top: 10/6.4*boxSizeV,
-                              ),
-                              child: Text(
-                                'Order medicines',
-                                style: GoogleFonts.poppins(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 18.0,
-                                  color: Colors.white
+                              child: Padding(
+                                padding:  EdgeInsets.only(
+                                  top: 10/6.4*boxSizeV,
                                 ),
-                                textAlign: TextAlign.center,
+                                child: Text(
+                                  'Order medicines',
+                                  style: GoogleFonts.poppins(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18.0,
+                                    color: Colors.white
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
                               ),
                             ),
                           ),
