@@ -6,7 +6,6 @@ import 'package:covigo/WidgetResizing.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import '../ControlScreen.dart';
 class MedicinePayment extends StatefulWidget {
   @override

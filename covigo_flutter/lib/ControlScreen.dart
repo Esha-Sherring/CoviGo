@@ -1,6 +1,8 @@
 import 'package:covigo/Authentication/MainScreen.dart';
+import 'package:covigo/ContactSection/ChatHomePage.dart';
 import 'package:covigo/FoodSection/FoodScreen.dart';
 import 'package:covigo/ReminderScreen.dart';
+import 'package:covigo/Sanitization/SanitizationPage.dart';
 import 'package:covigo/TrackSection/HomeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -30,7 +32,7 @@ class _ControlScreenState extends State<ControlScreen> {
                       child:_currentindex==0? MainScreen():
                       _currentindex==1?ReminderScreen():
                       _currentindex==2?TrackSection():
-                      _currentindex==3?FoodScreen():FoodScreen()),
+                      _currentindex==3?FoodScreen():_currentindex==4?SanitizationPage():ChatHomePage()),
                 ]
             ),
           ],
@@ -73,8 +75,13 @@ class _ControlScreenState extends State<ControlScreen> {
               title: Text(''),
             ),
             BottomNavigationBarItem(
+              icon: Icon(FontAwesomeIcons.sprayCan,
+                  color: _currentindex==4?Color(0xffFFBAB2):Colors.white),
+              title: Text(''),
+            ),
+            BottomNavigationBarItem(
                 icon: Icon(FontAwesomeIcons.comments,
-                    color: _currentindex==4?Color(0xffFFBAB2):Colors.white),
+                    color: _currentindex==5?Color(0xffFFBAB2):Colors.white),
                 title: Text('')
             ),
 
