@@ -1,12 +1,7 @@
 
-import 'package:covigo/FoodSection/FoodScreen.dart';
-import 'package:covigo/Authentication/MainScreen.dart';
-import 'package:covigo/ReminderScreen.dart';
 import 'package:covigo/SplashScreen.dart';
-import 'package:covigo/TrackSection/LevelCheck.dart';
 import 'package:flutter/material.dart';
-import 'FoodSection/OrderConfirmed.dart';
-import 'package:covigo/TrackSection/HomeScreen.dart';
+import 'MedicineSection/MedicineScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SplashScreen(),
+      home:MedsScreen(),
       // home: SplashScreen(),
     );
   }

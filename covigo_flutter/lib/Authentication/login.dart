@@ -1,5 +1,4 @@
 import 'package:covigo/Authentication/signup.dart';
-import 'package:covigo/Authentication/MainScreen.dart';
 import 'package:covigo/ControlScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

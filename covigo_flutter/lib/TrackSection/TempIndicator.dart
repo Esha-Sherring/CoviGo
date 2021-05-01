@@ -2,7 +2,7 @@ import 'package:syncfusion_flutter_gauges/gauges.dart';
 import 'package:flutter/material.dart';
 class TempIndicator extends StatelessWidget {
 TempIndicator(@required this.value);
- final int value;
+ final double value;
   @override
   Widget build(BuildContext context) {
     return  SfRadialGauge(
@@ -54,7 +54,7 @@ TempIndicator(@required this.value);
           ],
           pointers: <GaugePointer>[
             NeedlePointer(
-                value: value.toDouble(), needleColor: Colors.black,
+                value: value, needleColor: Colors.black,
                 tailStyle: TailStyle(length: 0.18, width: 8,
                     color: Colors.black,
                     lengthUnit: GaugeSizeUnit.factor),

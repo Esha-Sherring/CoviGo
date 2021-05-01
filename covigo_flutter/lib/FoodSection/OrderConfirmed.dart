@@ -1,4 +1,4 @@
-import 'package:covigo/Authentication/MainScreen.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,12 +6,23 @@ import '../ControlScreen.dart';
 import '../Variables.dart';
 import '../WidgetResizing.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-class OrderedConfirmed extends StatefulWidget {
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher.dart'as UrlLauncher;
+class OrderConfirmed extends StatefulWidget {
   @override
-  _OrderedConfirmedState createState() => _OrderedConfirmedState();
+  _OrderConfirmedState createState() => _OrderConfirmedState();
 }
 
-class _OrderedConfirmedState extends State<OrderedConfirmed> {
+class _OrderConfirmedState extends State<OrderConfirmed> {
+  String mobileno='9856471532';
+  void launchUrl(String phoneNumber) async {
+    String url='tel:'+phoneNumber;
+    if (await canLaunch(url)) {
+      await UrlLauncher.launch(url);
+    } else {
+      throw "Could not launch $url";
+    }
+  }
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -132,12 +143,17 @@ class _OrderedConfirmedState extends State<OrderedConfirmed> {
                   SizedBox(
                     width: 3/3.6*boxSizeH,
                   ),
-                  Text(
-                    '9856471532',
-                    style: GoogleFonts.poppins(
-                        fontSize: 17.0,
-                        color: Color(0xff2C4C75),
-                        fontWeight: FontWeight.w600
+                  GestureDetector(
+                    onTap:    (){
+                      launchUrl(mobileno);
+                    },
+                    child: Text(
+                      '9856471532',
+                      style: GoogleFonts.poppins(
+                          fontSize: 17.0,
+                          color: Color(0xff2C4C75),
+                          fontWeight: FontWeight.w600
+                      ),
                     ),
                   )
                 ],

@@ -19,16 +19,24 @@ final String oxygenlevel;
 class _LevelCheckState extends State<LevelCheck> {
 
  List<String> temp=[
-   'Tanya it seems\nyou have fever.\nTake your\nmedicines🤒',
+   'Ananya you are\ngood to go!\nStay healthy &\n take care.😇',
+   'Tanya you have\nfever.Take your\n medicines &\nample amount\n of rest.💤',
+   'Tanya you have\nfever.Consult\na doctor &\ntake your\n medicines🤒',
  ];
  List<String> oxygen=[
-   'Oxygen level\nlooks great😄.\nKeep in mind\n to breathe\ndeep for 3 mins'
- ];
+   'Oxygen level\nlooks great😄.\nKeep in mind\n to breathe\ndeep for 3 mins',
+   'Oxygen level\nis below\n normal.Need\nto breathe in\n& out at\nregular\nintervals.',
+   'You need to\nconsult a doctor\nASAP.Try\nsleeping on\nyour belly to\nimprove\noxygen level.'
 
+ ];
   @override
   Widget build(BuildContext context) {
-    int tempvalue=int.parse(widget.temperature);
-    int oxygenvalue=int.parse(widget.oxygenlevel);
+    double tempvalue=double.parse(widget.temperature);
+    double oxygenvalue=double.parse(widget.oxygenlevel);
+    int tempindex=0;
+    int oxygenindex=0;
+    tempindex=tempvalue<99?0:tempvalue>=99 && tempvalue<101?1:2;
+    oxygenindex=oxygenvalue>=95?0:oxygenvalue<95 &&oxygenvalue>=90?1:2;
     SizeConfig().init(context);
     boxSizeH = SizeConfig.safeBlockHorizontal;
     boxSizeV = SizeConfig.safeBlockVertical;
@@ -124,7 +132,7 @@ class _LevelCheckState extends State<LevelCheck> {
                   width: 10/3.6*boxSizeH,
                 ),
             Text(
-               temp[0],
+               temp[tempindex],
               style: GoogleFonts.poppins(
                 fontSize: 19.0,
                 color: Color(0xffA22222),
@@ -157,7 +165,7 @@ class _LevelCheckState extends State<LevelCheck> {
         width: 10/3.6*boxSizeH,
       ),
       Text(
-        oxygen[0],
+        oxygen[oxygenindex],
         style: GoogleFonts.poppins(
           fontSize: 19.0,
           color: Color(0xff001448),
@@ -165,7 +173,7 @@ class _LevelCheckState extends State<LevelCheck> {
         ),
       ),
       SizedBox(
-        width: 10/3.6*boxSizeH,
+        width: 5/3.6*boxSizeH,
       ),
     Container(
 
