@@ -3,6 +3,10 @@ const reminderSchema = new mongoose.Schema({
   medicines: {  
     type: String,
     required: true,
+    time:{
+      type: String,
+      
+    }
 
   },steam: {
     type: String,

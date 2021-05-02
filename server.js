@@ -65,19 +65,14 @@ app.post('/payment', function(req, res){
 
  // *Routes
  const userroutes = require('./routes/userroutes.js');
-
- const orderroutes = require('./routes/order.js')
- const reminderroutes = require('./routes/reminders.js')
- const medicineroutes = require('./routes/medicineorder.js')
- const sanitationroutes = require('./routes/sanitation.js')
- //const activityroutes= require('./routes/activities.js')
-
  const orderroutes = require('./routes/order.js');
  const reminderroutes = require('./routes/reminders.js');
  const medicineroutes = require('./routes/medicineorder.js');
  const levelroutes = require('./routes/level.js');
  const chatroutes = require('./routes/chat.js');
  const doctorRoutes = require('./routes/doctor.js');
+ const sanitationroutes=require('./routes/sanitation.js');
+ const activityroutes=require('./routes/activity.js');
 
  // * Models
 const Message = require("./models/Message");
