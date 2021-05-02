@@ -54,8 +54,12 @@
                  
                   
                   const reminders= await Reminder.find({createdBy:req.user.id})
-                  console.log(reminders)
-                  return res.json(reminders).status(200);
+                  if(reminders.medicines.time==='4 am')
+                  {
+                    console.log(reminders)
+                    return res.json(reminders).status(200);
+                  }
+                 
                 }catch(err){
                   console.log(err)
                   return res.status(404).send({ error: "server error" });
