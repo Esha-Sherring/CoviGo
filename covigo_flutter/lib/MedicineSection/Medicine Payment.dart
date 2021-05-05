@@ -226,7 +226,7 @@ class _MedicinePaymentState extends State<MedicinePayment> {
                       SizedBox(
                         height: 10/6.4*boxSizeV,
                       ),
-                      Text('Enter token',
+                      Text('Enter CVV',
                         style: GoogleFonts.poppins(
                           fontSize: 19,
                           color: Color(0xff2C4C75),

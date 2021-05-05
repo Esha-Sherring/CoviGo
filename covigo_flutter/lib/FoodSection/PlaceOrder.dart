@@ -287,8 +287,7 @@ class _PlaceOrderState extends State<PlaceOrder> {
                         child: TextField(
                           focusNode: _phoneNode,
                           controller: _phoneNoController,
-                          maxLines: 3,
-                          keyboardType: TextInputType.text,
+                          keyboardType: TextInputType.number,
                           style: TextStyle(
                             color: Colors.black54,
                             fontSize: 20.0,
@@ -309,6 +308,7 @@ class _PlaceOrderState extends State<PlaceOrder> {
                                   color: Color(0xff2C4C75),
                                 )),
                           ),
+
                           onChanged: (value) {
                             setState(() {
 
