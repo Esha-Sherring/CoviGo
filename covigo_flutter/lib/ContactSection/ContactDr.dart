@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../Variables.dart';
 import '../WidgetResizing.dart';
 import 'package:covigo/ControlScreen.dart';
@@ -51,7 +50,7 @@ class _ContactDrState extends State<ContactDr> {
               top: 20/6.4*boxSizeV,
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+
               children: [
                 GestureDetector(
                   onTap: (){
@@ -70,6 +69,9 @@ class _ContactDrState extends State<ContactDr> {
                     ),
                   ),
                 ),
+                SizedBox(
+                  width: 50/3.6*boxSizeH,
+                ),
 
                 Text(
                   'Contact a Doctor',
@@ -79,11 +81,11 @@ class _ContactDrState extends State<ContactDr> {
                     fontWeight: FontWeight.w500,
                   ) ,
                 ),
-                Container(
-                    width: 20/3.6*boxSizeH,
-                    height: 20/6.4*boxSizeV,
-                    child:Icon(FontAwesomeIcons.userNurse,
-                      color: Colors.white,) )
+                // Container(
+                //     width: 20/3.6*boxSizeH,
+                //     height: 20/6.4*boxSizeV,
+                //     child:Icon(FontAwesomeIcons.userNurse,
+                //       color: Colors.white,) )
               ],
             ),
           ),

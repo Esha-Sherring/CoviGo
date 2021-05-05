@@ -288,8 +288,7 @@ class _PlaceMedicineOrderState extends State<PlaceMedicineOrder> {
                           child: TextField(
                             focusNode: _phoneNode,
                             controller: _phoneNoController,
-                            maxLines: 3,
-                            keyboardType: TextInputType.text,
+                            keyboardType: TextInputType.number,
                             style: TextStyle(
                               color: Colors.black54,
                               fontSize: 20.0,
@@ -310,6 +309,7 @@ class _PlaceMedicineOrderState extends State<PlaceMedicineOrder> {
                                     color: Color(0xff2C4C75),
                                   )),
                             ),
+
                             onChanged: (value) {
                               setState(() {
 
