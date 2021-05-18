@@ -5,7 +5,10 @@
     const bcrypt = require('bcryptjs');
 
     // * Models
-    
+    module.exports.breathing = async (req,res) =>{
+        console.log('breathing route');
+        res.sendFile(__dirname+'/breathing.html');
+    }
 
     //Route to register User
     //matching passwords handled on the frontend
@@ -79,7 +82,7 @@
             
             
         }
-    }
+ 
               
 
                 

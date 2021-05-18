@@ -90,8 +90,14 @@ connectdb();
 
 //add middlewares
 const { protectUser } = require('./middleware/auth');
+
 app.use(express.json({ extended: false }));
 
+// server css as static
+app.use(express.static(__dirname));
+app.get('/styles.css', function(req, res) {
+    res.sendFile(__dirname + "/" + "style.css");
+  });
 //initiaise passport
 app.use(passport.initialize());
 app.use(passport.session());
@@ -105,7 +111,7 @@ app.get('https://accounts.spotify.com/authorize')
  app.use('/api/medicine',medicineroutes);
 
  app.use('/api/hygiene',sanitationroutes);
- //app.use('/api/activities',activityroutes);
+ app.use('/api/activities',activityroutes);
 
 
  app.use('/api/level', [protectUser], levelroutes);

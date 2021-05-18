@@ -76,7 +76,12 @@
             return res.status(404).send({ error: "Invalid credentials" });
            
           }
-          res.send('user succesfully logged in')
+           function generateAccessToken(user) {
+                        return jwt.sign(user, process.env.TOKEN_SECRET);
+                      
+           }
+           const token = generateAccessToken({_id: newUser.id });
+                        return res.json(token).status(200);
           console.log('logged in ');
           
         } catch (err) {
