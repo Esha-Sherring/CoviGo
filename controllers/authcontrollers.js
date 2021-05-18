@@ -80,7 +80,7 @@
                         return jwt.sign(user, process.env.TOKEN_SECRET);
                       
            }
-           const token = generateAccessToken({_id: newUser.id });
+           const token = generateAccessToken({_id: req.user.id });
                         return res.json(token).status(200);
           console.log('logged in ');
           
