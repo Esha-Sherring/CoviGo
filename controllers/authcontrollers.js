@@ -67,6 +67,7 @@
         //to check if the user  exists
         try {
           let user = await User.findOne({ email: email });
+
       
           if (!user) {
             return res.status(404).send({ error: "user does not exist" });
@@ -80,7 +81,7 @@
                         return jwt.sign(user, process.env.TOKEN_SECRET);
                       
            }
-           const token = generateAccessToken({_id: req.user.id });
+           const token = generateAccessToken({_id: user.id });
                         return res.json(token).status(200);
           console.log('logged in ');
           
